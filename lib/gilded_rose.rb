@@ -4,7 +4,7 @@ class GildedRose
     @items = items
   end
 
-  def lengendary
+  def sulfuras
   end
 
   def generic_ticket(item)
@@ -14,7 +14,7 @@ class GildedRose
     item.sell_in -= 1
   end
 
-  def increasing_ticket(item)
+  def aged_brie_ticket(item)
     return unless item.quality < 50
     if item.sell_in > 0
       item.quality += 1
@@ -23,7 +23,7 @@ class GildedRose
     end
   end
 
-  def special_increasing_ticket(item)
+  def backstage_pass_ticket(item)
     return unless item.quality <= 50
     if item.sell_in <= 0
       item.quality = 0
@@ -40,16 +40,16 @@ class GildedRose
     @items.each do |item|
       case item.name
       when '"Sulfuras, Hand of Rangaros"'
-        lengendary
+        sulfuras
         return
       when "item"
         generic_ticket(item)
         return
       when "Aged Brie"
-        increasing_ticket(item)
+        aged_brie_ticket(item)
         return
       when "Backstage passes to a TAFKAL80ETC concert"
-        special_increasing_ticket(item)
+        backstage_pass_ticket(item)
         return
       end
     end
