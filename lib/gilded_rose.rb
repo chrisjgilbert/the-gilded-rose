@@ -4,8 +4,14 @@ class GildedRose
     @items = items
   end
 
+  def lengendary
+  end
+
   def update_quality
     @items.each do |item|
+      if item.name == "Sulfuras, Hand of Rangaros"
+        lengendary
+      end
       if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
         if item.quality > 0
           if item.name != "Sulfuras, Hand of Ragnaros"
