@@ -13,9 +13,10 @@ class GildedRose
 
   def update_quality
     @items.each do |item|
-      if item.name == "Sulfuras, Hand of Rangaros"
+      case item.name
+      when '"Sulfuras, Hand of Rangaros"'
         lengendary
-      elsif item.name == "item"
+      when "item"
         generic_ticket(item)
       end
       if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
