@@ -8,12 +8,21 @@ class GildedRose
   end
 
   def generic_ticket(item)
-    item.quality -= 1 if item.quality > 0
-    item.sell_in -=1 if item.sell_in < 1
+    if item.quality > 0
+      if item.sell_in > 0
+        item.quality -= 1
+      else
+        item.quality -=2
+      end
+    end
+    if item.sell_in > 0
+      item.sell_in -= 1
+    end
   end
 
   def increasing_ticket(item)
-    item.quality if item.sell_in  > 0
+    item.quality += 1 if item.sell_in  > 0
+    item.quality += 2 if item.sell_in < 1
   end
 
   def update_quality
@@ -21,10 +30,13 @@ class GildedRose
       case item.name
       when '"Sulfuras, Hand of Rangaros"'
         lengendary
+        return
       when "item"
         generic_ticket(item)
+        return
       when "Aged Brie"
         increasing_ticket(item)
+        return
       end
       if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
         if item.quality > 0
