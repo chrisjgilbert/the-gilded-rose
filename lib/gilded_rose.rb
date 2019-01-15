@@ -12,6 +12,10 @@ class GildedRose
     item.sell_in -=1 if item.sell_in < 1
   end
 
+  def increasing_ticket(item)
+    item.quality if item.sell_in  > 0
+  end
+
   def update_quality
     @items.each do |item|
       case item.name
@@ -19,6 +23,8 @@ class GildedRose
         lengendary
       when "item"
         generic_ticket(item)
+      when "Aged Brie"
+        increasing_ticket(item)
       end
       if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
         if item.quality > 0
