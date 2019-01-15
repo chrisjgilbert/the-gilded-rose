@@ -25,17 +25,9 @@ class GildedRose
   def special_increasing_ticket(item)
     if item.quality < 50
       if item.sell_in <= 10 && item.sell_in > 5
-        if item.quality < 49
-          item.quality += 2
-        else
-          item.quality += 1
-        end
+        item.quality < 49 ? item.quality += 2 : item.quality += 1
       elsif item.sell_in <= 5 && item.sell_in > 0
-          if item.quality < 48
-            item.quality += 3
-          else
-            item.quality += 2
-          end
+        item.quality < 48 ? item.quality += 3 : item.quality += 2
       else
         item.quality += 1
       end
