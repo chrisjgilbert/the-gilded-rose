@@ -31,7 +31,11 @@ class GildedRose
           item.quality += 1
         end
       elsif item.sell_in <= 5 && item.sell_in > 0
-          item.quality += 3
+          if item.quality < 48
+            item.quality += 3
+          else
+            item.quality += 2
+          end
       else
         item.quality += 1
       end
