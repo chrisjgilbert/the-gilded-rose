@@ -28,11 +28,12 @@ class GildedRose
         item.quality < 49 ? item.quality += 2 : item.quality += 1
       elsif item.sell_in <= 5 && item.sell_in > 0
         item.quality < 48 ? item.quality += 3 : item.quality += 2
+      elsif item.sell_in <= 0
+        item.quality = 0
       else
         item.quality += 1
       end
     end
-
   end
 
   def update_quality
