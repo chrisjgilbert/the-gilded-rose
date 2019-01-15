@@ -22,6 +22,12 @@ class GildedRose
     end
   end
 
+  def special_increasing_ticket(item)
+    if item.quality < 50
+      item.quality += 1
+    end
+  end
+
   def update_quality
     @items.each do |item|
       case item.name
