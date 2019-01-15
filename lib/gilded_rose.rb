@@ -9,23 +9,23 @@ class GildedRose
 
   def generic_ticket(item)
     if item.quality > 0
-      if item.sell_in > 0
-        item.quality -= 1
-      else
-        item.quality -=2
-      end
+      item.sell_in > 0 ? item.quality -= 1 : item.quality -=2
     end
-    if item.sell_in > 0
-      item.sell_in -= 1
-    end
+    item.sell_in -= 1 if item.sell_in > 0
   end
 
   def increasing_ticket(item)
     if item.sell_in  > 0
-      item.quality += 1
+      if item.quality < 50
+        item.quality += 1
+      end
     end
     if item.sell_in < 1
-      item.quality += 2
+      if item.quality < 49
+        item.quality += 2
+      else
+        item.quality += 1
+      end
     end
   end
 
