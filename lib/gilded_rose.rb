@@ -1,3 +1,5 @@
+require_relative './generic'
+
 class GildedRose
 
   def initialize(items)
@@ -8,10 +10,10 @@ class GildedRose
   end
 
   def generic_ticket(item)
-    if item.quality > 0
-      item.sell_in > 0 ? item.quality -= 1 : item.quality -= 2
-    end
-    item.sell_in -= 1
+    generic = Generic.new(item.name, item.sell_in, item.quality)
+    p generic.sell_in
+    generic.update
+    p generic.sell_in
   end
 
   def aged_brie_ticket(item)
