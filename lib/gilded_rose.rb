@@ -11,7 +11,7 @@ class GildedRose
     if item.quality > 0
       item.sell_in > 0 ? item.quality -= 1 : item.quality -=2
     end
-    item.sell_in -= 1 if item.sell_in > 0
+    item.sell_in -= 1
   end
 
   def increasing_ticket(item)
