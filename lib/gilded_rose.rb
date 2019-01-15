@@ -8,7 +8,7 @@ class GildedRose
   end
 
   def generic_ticket(item)
-    item.quality -= 1
+    item.quality -= 1 if item.quality > 0
   end
 
   def update_quality
