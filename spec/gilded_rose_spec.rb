@@ -48,20 +48,6 @@ describe GildedRose do
           GildedRose.new([item]).update_quality
         end
       end
-
-      context 'after sell_in' do
-        it 'raises quality by two after a day' do
-          item = Item.new("Aged Brie", 0, 0)
-          GildedRose.new([item]).update_quality
-          expect(item.quality).to eq(2)
-        end
-
-        it 'only raises quality to 50 when quality is at 49' do
-          item = Item.new("Aged Brie", 0, 49)
-          GildedRose.new([item]).update_quality
-          expect(item.quality).to eq(50)
-        end
-      end
     end
 
     context 'when item is Sulfuras, Hand of Ragnaros' do
