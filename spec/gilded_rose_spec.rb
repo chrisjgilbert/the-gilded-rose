@@ -23,6 +23,11 @@ describe GildedRose do
     end
 
     context 'when item is generic' do
+      it 'tells item to update' do
+        item = double(:item, name: 'item')
+        expect(item).to receive(:update)
+        GildedRose.new([item]).update_quality
+      end
       context 'before sell_in' do
         it 'lowers quality by one after one day' do
           item = Item.new("item", 1, 1)
