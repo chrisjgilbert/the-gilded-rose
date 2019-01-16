@@ -22,7 +22,7 @@ class GildedRose
   end
 
   def backstage_pass_ticket(item)
-    BackstagePass.update(item)
+    item.update
   end
 
   def update_quality
