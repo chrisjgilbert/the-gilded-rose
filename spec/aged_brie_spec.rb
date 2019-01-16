@@ -8,8 +8,8 @@ describe AgedBrie do
   end
 
   it 'never raises quality beyond 50' do
-    item = Item.new("Aged Brie", 1, 50)
-    GildedRose.new([item]).update_quality
+    item = AgedBrie.new("Aged Brie", 1, 50)
+    item.update
     expect(item.quality).to eq(50)
   end
 end
