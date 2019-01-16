@@ -15,14 +15,14 @@ describe GildedRose do
         item = double(:item, name: 'item')
         allow(item).to receive(:update_sell_in)
         expect(item).to receive(:update_quality)
-        GildedRose.new([item]).update_quality
+        GildedRose.new([item]).update
       end
 
       it 'tells item to update sell_in' do
         item = double(:item, name: 'item')
         allow(item).to receive(:update_quality)
         expect(item).to receive(:update_sell_in)
-        GildedRose.new([item]).update_quality
+        GildedRose.new([item]).update
       end
     end
 
@@ -31,14 +31,14 @@ describe GildedRose do
         item = double(:item, name: 'Aged Brie')
         allow(item).to receive(:update_sell_in)
         expect(item).to receive(:update_quality)
-        GildedRose.new([item]).update_quality
+        GildedRose.new([item]).update
       end
 
       it 'tells aged brie to update sell_in' do
         item = double(:item, name: 'Aged Brie')
         allow(item).to receive(:update_quality)
         expect(item).to receive(:update_sell_in)
-        GildedRose.new([item]).update_quality
+        GildedRose.new([item]).update
       end
     end
 
@@ -47,14 +47,14 @@ describe GildedRose do
         item = double(:item, name: "Sulfuras, Hand of Rangaros")
         allow(item).to receive(:update_sell_in)
         expect(item).to receive(:update_quality)
-        GildedRose.new([item]).update_quality
+        GildedRose.new([item]).update
       end
 
       it 'tells sulfuras to update sell_in' do
         item = double(:item, name: "Sulfuras, Hand of Rangaros")
         allow(item).to receive(:update_sell_in)
         expect(item).to receive(:update_quality)
-        GildedRose.new([item]).update_quality
+        GildedRose.new([item]).update
       end
     end
 
@@ -63,14 +63,14 @@ describe GildedRose do
         item = double(:item, name: "Backstage passes to a TAFKAL80ETC concert")
         allow(item).to receive(:update_sell_in)
         expect(item).to receive(:update_quality)
-        GildedRose.new([item]).update_quality
+        GildedRose.new([item]).update
       end
 
       it "tells backstage pass to update sell_in" do
         item = double(:item, name: "Backstage passes to a TAFKAL80ETC concert")
         allow(item).to receive(:update_quality)
         expect(item).to receive(:update_sell_in)
-        GildedRose.new([item]).update_quality
+        GildedRose.new([item]).update
       end
     end
   end

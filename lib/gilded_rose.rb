@@ -9,7 +9,7 @@ class GildedRose
     @items = items
   end
 
-  def update_quality
+  def update
     @items.each do |item|
       item.update_quality
       item.update_sell_in
