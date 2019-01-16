@@ -1,8 +1,3 @@
-require_relative './generic'
-require_relative './aged_brie'
-require_relative './backstage_pass'
-require_relative './sulfuras'
-
 class GildedRose
 
   def initialize(items)
