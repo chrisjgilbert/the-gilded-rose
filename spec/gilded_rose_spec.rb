@@ -27,17 +27,33 @@ describe GildedRose do
     end
 
     context 'when item is Aged Brie' do
-      it 'tells aged brie to update' do
+      it 'tells aged brie to update quality' do
         item = double(:item, name: 'Aged Brie')
-        expect(item).to receive(:update)
+        allow(item).to receive(:update_sell_in)
+        expect(item).to receive(:update_quality)
+        GildedRose.new([item]).update_quality
+      end
+
+      it 'tells aged brie to update sell_in' do
+        item = double(:item, name: 'Aged Brie')
+        allow(item).to receive(:update_quality)
+        expect(item).to receive(:update_sell_in)
         GildedRose.new([item]).update_quality
       end
     end
 
     context 'when item is Sulfuras, Hand of Ragnaros' do
-      it 'tells sulfuras to update' do
+      it 'tells sulfuras to update quality' do
         item = double(:item, name: "Sulfuras, Hand of Rangaros")
-        expect(item).to receive(:update)
+        allow(item).to receive(:update_sell_in)
+        expect(item).to receive(:update_quality)
+        GildedRose.new([item]).update_quality
+      end
+
+      it 'tells sulfuras to update sell_in' do
+        item = double(:item, name: "Sulfuras, Hand of Rangaros")
+        allow(item).to receive(:update_sell_in)
+        expect(item).to receive(:update_quality)
         GildedRose.new([item]).update_quality
       end
     end
