@@ -42,18 +42,6 @@ describe GildedRose do
 
     context 'when item is Aged Brie' do
       context 'before sell_in' do
-        it 'raises quality by one after a day' do
-          item = Item.new("Aged Brie", 1, 0)
-          GildedRose.new([item]).update_quality
-          expect(item.quality).to eq(1)
-        end
-
-        it 'never raises quality beyond 50' do
-          item = Item.new("Aged Brie", 1, 50)
-          GildedRose.new([item]).update_quality
-          expect(item.quality).to eq(50)
-        end
-
         it 'tells aged brie to update' do
           item = double(:item, name: 'Aged Brie')
           expect(item).to receive(:update)

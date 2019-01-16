@@ -1,11 +1,13 @@
-class AgedBrie
+require_relative './item'
 
-  def self.update(item)
-    return unless item.quality < 50
-    if item.sell_in > 0
-      item.quality += 1
-    elsif item.sell_in < 1
-      item.quality < 49 ? item.quality += 2 : item.quality += 1
+class AgedBrie < Item
+
+  def update
+    return unless @quality < 50
+    if @sell_in > 0
+      @quality += 1
+    elsif @sell_in < 1
+      @quality < 49 ? @quality += 2 : @quality += 1
     end
   end
 
