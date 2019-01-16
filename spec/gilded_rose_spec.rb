@@ -4,9 +4,12 @@ require 'item'
 describe GildedRose do
 
   describe "#update_quality" do
+
     it "does not change the name" do
       item = double(:item, name: 'foo')
-      allow(item).to receive(:update).and_return(item)
+      allow(item).to receive(:update_quality)
+      allow(item).to receive(:update_sell_in)
+      GildedRose.new([item]).update
       expect(item.name).to eq "foo"
     end
 
