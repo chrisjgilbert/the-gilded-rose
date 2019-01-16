@@ -2,11 +2,11 @@ require_relative 'item'
 
 class Generic < Item
 
-  def self.update(item)
-    if item.quality > 0
-      item.sell_in > 0 ? item.quality -= 1 : item.quality -= 2
+  def update
+    if @quality > 0
+      @sell_in > 0 ? @quality -= 1 : @quality -= 2
     end
-    item.sell_in -= 1
+    @sell_in -= 1
   end
 
 end
