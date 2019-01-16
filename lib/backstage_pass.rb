@@ -10,7 +10,7 @@ class BackstagePass < Item
       @quality < 49 ? @quality += 2 : @quality += 1
     elsif @sell_in <= 5 && @sell_in > 0
       @quality < 48 ? @quality += 3 : @quality += 2
-    elsif item.quality < 50
+    elsif @quality < 50
       @quality += 1
     end
   end
