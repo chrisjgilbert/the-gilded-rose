@@ -2,7 +2,7 @@ require_relative './item'
 
 class AgedBrie < Item
 
-  def update
+  def update_quality
     return unless @quality < 50
     if @sell_in > 0
       @quality += 1
