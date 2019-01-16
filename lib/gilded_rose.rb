@@ -12,7 +12,7 @@ class GildedRose
   end
 
   def generic_ticket(item)
-    Generic.update(item)
+    item.update
   end
 
   def aged_brie_ticket(item)
