@@ -11,7 +11,7 @@ describe GildedRose do
     end
 
     it "lowers the sell_in by one after a day" do
-      item = Generic.new("item", 1, 0)
+      item = Item.new("item", 1, 0)
       GildedRose.new([item]).update_quality
       expect(item.sell_in).to eq 0
     end
@@ -52,6 +52,12 @@ describe GildedRose do
           item = Item.new("Aged Brie", 1, 50)
           GildedRose.new([item]).update_quality
           expect(item.quality).to eq(50)
+        end
+
+        it 'tells aged brie to update' do
+          item = double(:item, name: 'Aged Brie')
+          expect(item).to receive(:update)
+          GildedRose.new([item]).update_quality
         end
       end
 

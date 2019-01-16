@@ -16,7 +16,7 @@ class GildedRose
   end
 
   def aged_brie_ticket(item)
-    AgedBrie.update(item)
+    item.update
   end
 
   def backstage_pass_ticket(item)
