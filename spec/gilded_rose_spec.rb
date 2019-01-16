@@ -47,6 +47,11 @@ describe GildedRose do
     end
 
     context 'when item is Backstage passes to a TAFKAL80ETC concert' do
+      it "tells backstage pass to update" do
+        item = double(:item, name: "Backstage passes to a TAFKAL80ETC concert")
+        expect(item).to receive(:update)
+        GildedRose.new([item]).update_quality
+      end
       context 'when sell_in is greater than 10' do
         it 'increases quality by one after each day' do
           item = Item.new("Backstage passes to a TAFKAL80ETC concert", 15, 0)
