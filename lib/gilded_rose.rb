@@ -1,6 +1,7 @@
 require_relative './generic'
 require_relative './aged_brie'
 require_relative './backstage_pass'
+require_relative './sulfuras'
 
 class GildedRose
 
@@ -8,7 +9,8 @@ class GildedRose
     @items = items
   end
 
-  def sulfuras
+  def sulfuras(item)
+    item.update
   end
 
   def generic_ticket(item)
@@ -27,7 +29,7 @@ class GildedRose
     @items.each do |item|
       case item.name
       when "Sulfuras, Hand of Rangaros"
-        sulfuras
+        sulfuras(item)
         return
       when "item"
         generic_ticket(item)

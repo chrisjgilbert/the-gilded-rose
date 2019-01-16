@@ -50,6 +50,12 @@ describe GildedRose do
         GildedRose.new([item]).update_quality
         expect(item.quality).to eq(80)
       end
+
+      it 'tells sulfuras to update' do
+        item = double(:item, name: "Sulfuras, Hand of Rangaros")
+        expect(item).to receive(:update)
+        GildedRose.new([item]).update_quality
+      end
     end
 
     context 'when item is Backstage passes to a TAFKAL80ETC concert' do
