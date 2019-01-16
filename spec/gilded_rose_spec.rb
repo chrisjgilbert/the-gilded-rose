@@ -59,9 +59,17 @@ describe GildedRose do
     end
 
     context 'when item is Backstage passes to a TAFKAL80ETC concert' do
-      it "tells backstage pass to update" do
+      it "tells backstage pass to update quality" do
         item = double(:item, name: "Backstage passes to a TAFKAL80ETC concert")
-        expect(item).to receive(:update)
+        allow(item).to receive(:update_sell_in)
+        expect(item).to receive(:update_quality)
+        GildedRose.new([item]).update_quality
+      end
+
+      it "tells backstage pass to update sell_in" do
+        item = double(:item, name: "Backstage passes to a TAFKAL80ETC concert")
+        allow(item).to receive(:update_quality)
+        expect(item).to receive(:update_sell_in)
         GildedRose.new([item]).update_quality
       end
     end
