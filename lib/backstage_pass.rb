@@ -13,6 +13,7 @@ class BackstagePass < Item
     elsif @quality < 50
       @quality += 1
     end
+    @sell_in -= 1
   end
 
 end
