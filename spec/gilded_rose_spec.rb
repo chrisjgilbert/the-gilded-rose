@@ -6,14 +6,21 @@ describe GildedRose do
   describe "#update" do
 
     it "only tells item to update_sell_in if item sell in above 0" do
-      item = double(:item, name: 'foo', update_sell_in: 1)
+      item = double(:item, name: 'foo', sell_in: 1)
       allow(item).to receive(:update_quality)
       expect(item).to receive(:update_sell_in)
       GildedRose.new([item]).update
     end
 
+    it "does not tell item to update_sell_in if item sell in is 0" do
+      item = double(:item, name: 'foo', sell_in: 0)
+      allow(item).to receive(:update_quality)
+      expect(item).not_to receive(:update_sell_in)
+      GildedRose.new([item]).update
+    end
+
     it "does not change the name" do
-      item = double(:item, name: 'foo')
+      item = double(:item, name: 'foo', sell_in: 1)
       allow(item).to receive(:update_quality)
       allow(item).to receive(:update_sell_in)
       GildedRose.new([item]).update
@@ -22,14 +29,14 @@ describe GildedRose do
 
     context 'when item is generic' do
       it 'tells item to update quality' do
-        item = double(:item, name: 'item')
+        item = double(:item, name: 'item', sell_in: 1)
         allow(item).to receive(:update_sell_in)
         expect(item).to receive(:update_quality)
         GildedRose.new([item]).update
       end
 
       it 'tells item to update sell_in' do
-        item = double(:item, name: 'item')
+        item = double(:item, name: 'item', sell_in: 1)
         allow(item).to receive(:update_quality)
         expect(item).to receive(:update_sell_in)
         GildedRose.new([item]).update
@@ -38,14 +45,14 @@ describe GildedRose do
 
     context 'when item is Aged Brie' do
       it 'tells aged brie to update quality' do
-        item = double(:item, name: 'Aged Brie')
+        item = double(:item, name: 'Aged Brie', sell_in: 1)
         allow(item).to receive(:update_sell_in)
         expect(item).to receive(:update_quality)
         GildedRose.new([item]).update
       end
 
       it 'tells aged brie to update sell_in' do
-        item = double(:item, name: 'Aged Brie')
+        item = double(:item, name: 'Aged Brie', sell_in: 1)
         allow(item).to receive(:update_quality)
         expect(item).to receive(:update_sell_in)
         GildedRose.new([item]).update
@@ -54,14 +61,14 @@ describe GildedRose do
 
     context 'when item is Sulfuras, Hand of Ragnaros' do
       it 'tells sulfuras to update quality' do
-        item = double(:item, name: "Sulfuras, Hand of Rangaros")
+        item = double(:item, name: "Sulfuras, Hand of Rangaros", sell_in: 1)
         allow(item).to receive(:update_sell_in)
         expect(item).to receive(:update_quality)
         GildedRose.new([item]).update
       end
 
       it 'tells sulfuras to update sell_in' do
-        item = double(:item, name: "Sulfuras, Hand of Rangaros")
+        item = double(:item, name: "Sulfuras, Hand of Rangaros", sell_in: 1)
         allow(item).to receive(:update_sell_in)
         expect(item).to receive(:update_quality)
         GildedRose.new([item]).update
@@ -70,14 +77,14 @@ describe GildedRose do
 
     context 'when item is Backstage passes to a TAFKAL80ETC concert' do
       it "tells backstage pass to update quality" do
-        item = double(:item, name: "Backstage passes to a TAFKAL80ETC concert")
+        item = double(:item, name: "Backstage passes to a TAFKAL80ETC concert", sell_in: 1)
         allow(item).to receive(:update_sell_in)
         expect(item).to receive(:update_quality)
         GildedRose.new([item]).update
       end
 
       it "tells backstage pass to update sell_in" do
-        item = double(:item, name: "Backstage passes to a TAFKAL80ETC concert")
+        item = double(:item, name: "Backstage passes to a TAFKAL80ETC concert", sell_in: 1)
         allow(item).to receive(:update_quality)
         expect(item).to receive(:update_sell_in)
         GildedRose.new([item]).update
