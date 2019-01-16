@@ -2,7 +2,7 @@ require 'item'
 
 class BackstagePass < Item
 
-  def update
+  def update_quality
     return unless @quality <= 50
     if @sell_in <= 0
       @quality = 0
@@ -13,6 +13,9 @@ class BackstagePass < Item
     elsif @quality < 50
       @quality += 1
     end
+  end
+
+  def update_sell_in
     @sell_in -= 1
   end
 
