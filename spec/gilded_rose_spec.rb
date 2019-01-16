@@ -11,9 +11,15 @@ describe GildedRose do
     end
 
     context 'when item is generic' do
-      it 'tells item to update' do
+      it 'tells item to update quality' do
         item = double(:item, name: 'item')
-        expect(item).to receive(:update)
+        expect(item).to receive(:update_quality)
+        GildedRose.new([item]).update_quality
+      end
+
+      it 'tells item to update sell_in' do
+        item = double(:item, name: 'item')
+        expect(item).to receive(:update_sell_in)
         GildedRose.new([item]).update_quality
       end
     end
