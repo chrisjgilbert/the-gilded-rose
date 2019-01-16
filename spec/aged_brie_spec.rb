@@ -2,6 +2,12 @@ require 'aged_brie'
 
 describe AgedBrie do
 
+  it "lowers the sell_in by one after a day" do
+    item = AgedBrie.new("Aged Brie", 1, 0)
+    item.update
+    expect(item.sell_in).to eq 0
+  end
+
   context 'before sell_in' do
     it 'raises quality by one after a day' do
       item = AgedBrie.new("Aged Brie", 1, 0)

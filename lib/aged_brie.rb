@@ -9,6 +9,7 @@ class AgedBrie < Item
     elsif @sell_in < 1
       @quality < 49 ? @quality += 2 : @quality += 1
     end
+    @sell_in -= 1
   end
 
 end
