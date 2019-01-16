@@ -26,7 +26,7 @@ class GildedRose
   def update_quality
     @items.each do |item|
       case item.name
-      when '"Sulfuras, Hand of Rangaros"'
+      when "Sulfuras, Hand of Rangaros"
         sulfuras
         return
       when "item"
