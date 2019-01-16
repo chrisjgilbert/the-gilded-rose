@@ -10,10 +10,7 @@ class GildedRose
   end
 
   def generic_ticket(item)
-    generic = Generic.new(item.name, item.sell_in, item.quality)
-    p generic.sell_in
-    generic.update
-    p generic.sell_in
+    Generic.update(item)
   end
 
   def aged_brie_ticket(item)

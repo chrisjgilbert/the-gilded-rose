@@ -11,7 +11,7 @@ describe GildedRose do
     end
 
     it "lowers the sell_in by one after a day" do
-      item = Item.new("item", 1, 0)
+      item = Generic.new("item", 1, 0)
       GildedRose.new([item]).update_quality
       expect(item.sell_in).to eq 0
     end
