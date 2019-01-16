@@ -3,7 +3,14 @@ require 'item'
 
 describe GildedRose do
 
-  describe "#update_quality" do
+  describe "#update" do
+
+    it "only tells item to update_sell_in if item sell in above 0" do
+      item = double(:item, name: 'foo', update_sell_in: 1)
+      allow(item).to receive(:update_quality)
+      expect(item).to receive(:update_sell_in)
+      GildedRose.new([item]).update
+    end
 
     it "does not change the name" do
       item = double(:item, name: 'foo')
